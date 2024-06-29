@@ -1,1 +1,1 @@
-Сначала открываете файл 3.html
+http://lobodenko.art/
