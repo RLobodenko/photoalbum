@@ -48,7 +48,25 @@ let id_photo;
         success: function(data){
           $('#like_count').text(data);
           $('#item-photo-like-'+id_photo).html('&nbsp;' + data + ' лайк');
-
+          $.ajax({
+            url: 'ajax/add_like.php',
+            method: 'post',
+            dataType: 'html',
+            data: {id_photo: id_photo, mode: 'showlike'},
+            success: function(data){
+              $('#like_count').text(data);
+            }
+          });
+  
+          $.ajax({
+            url: 'ajax/add_like.php',
+            method: 'post',
+            dataType: 'html',
+            data: {id_photo: id_photo, mode: 'showdislike'},
+            success: function(data){
+              $('#dislike_count').text(data);
+            }
+          });
           
         }
       });
@@ -65,6 +83,25 @@ let id_photo;
         success: function(data){
           $('#dislike_count').text(data);
           $('#item-photo-dislike-'+id_photo).html('&nbsp;' + data + ' дизлайк');
+          $.ajax({
+            url: 'ajax/add_like.php',
+            method: 'post',
+            dataType: 'html',
+            data: {id_photo: id_photo, mode: 'showlike'},
+            success: function(data){
+              $('#like_count').text(data);
+            }
+          });
+  
+          $.ajax({
+            url: 'ajax/add_like.php',
+            method: 'post',
+            dataType: 'html',
+            data: {id_photo: id_photo, mode: 'showdislike'},
+            success: function(data){
+              $('#dislike_count').text(data);
+            }
+          });
         }
       });
 
